@@ -1,7 +1,7 @@
 
 <div class="row">
 	<div id="footer" class="col col-12">
-		&copy; Gabriele Girelli 2016-19
+		iFISH4U &copy; Gabriele Girelli 2019
 	</div>
 </div>
 

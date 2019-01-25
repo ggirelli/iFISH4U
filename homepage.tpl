@@ -11,6 +11,12 @@
 
 			<h1 id="new_title">iFISH4U</h1>
 
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item active" arai-current="page">Home</li>
+				</ol>
+			</nav>
+
 			<div id="abstract" class="row">
 				<div class="col col-xl-12">
 					<b>Short abstract explaining what is available in this homepage.</b> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod

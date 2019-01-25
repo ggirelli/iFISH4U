@@ -23,8 +23,10 @@ a:hover {
 	font-weight: 600;
 
 	color: white;
-	background-image: url("/custom_images/title_background.png");
-	background-size: contain;
+	background-color: black;
+	background-image: url("/images/title_background.png");
+	background-size: cover;
+	background-position: center;
 	border-radius: 6px;
 	text-shadow: 0 0 10px #323232;
 }

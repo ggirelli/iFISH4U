@@ -1,3 +1,6 @@
+pdApp.tprefix = "iFISH4U|Probe Design|"
+pdApp.vd['breadcrumbs'] = True
+
 @root.route("/browse")
 @bot.view("browse")
 def callback():
