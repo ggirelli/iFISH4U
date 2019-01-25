@@ -60,7 +60,7 @@
 				<div class="col col-xl-6 col-12 text-left">
 					<ul>
 						<li>
-							Background FISH image by Miss E. Gelali.
+							Background FISH image by E. Gelali.
 						</li>
 					</ul>
 					<b>Here, reference to the iFISH paper and additional details?</b>
