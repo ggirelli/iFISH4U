@@ -63,8 +63,13 @@ a:hover {
 	vertical-align: middle;
 }
 
-.main-btn:hover {
+.main-btn:hover, .main-btn:focus {
 	color: #ED7528;
+}
+
+.main-btn:focus {
+	outline: 0 none;
+	box-shadow: none;
 }
 
 .main-btn .fas, .main-btn .fab {
