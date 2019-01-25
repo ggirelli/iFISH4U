@@ -58,6 +58,11 @@
 
 			<div id="bottom-text-wrap" class="row">
 				<div class="col col-xl-6 col-12 text-left">
+					<ul>
+						<li>
+							Background FISH image by Miss E. Gelali.
+						</li>
+					</ul>
 					<b>Here, reference to the iFISH paper and additional details?</b>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
