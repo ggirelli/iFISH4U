@@ -24,7 +24,7 @@
 					<p>This website will enable you to fully benefit from iFISH: a free and comprehensive resource, which we buolt, consisting of user-friendly tools for designing oligonucleotide-based DNA FISH probes, and of a growing repository of probes against multiple genomic targets, which we have already tested and validated.</p>
 
 					<p>Here, you can <a href="browse">browse</a> and request available probes, <a href="probe-design">design</a> new ones, <a href="download">download</a> our databases of oligonucleotide sequences, and learn how to <a href="https://ggirelli.github.io/iFISH-probe-design/install">install</a> our tools on your own machine.</p>
-					
+
 					<p>We hope that you will find this website useful, and please let us know how we should improve.</p>
 				</div>
 			</div>
@@ -59,14 +59,8 @@
 
 			<div id="bottom-text-wrap" class="row">
 				<div class="col col-xl-6 col-12 text-left">
-					<ul>
-						<li>
-							For questions and feedback on this website, and to request iFISH probes, please contact us at <a href="mailto:ifish4u@gmail.com">ifish4u@gmail.com</a>
-						</li>
-						<li>
-							Background FISH image by E. Gelali.
-						</li>
-					</ul>
+					<p>For questions and feedback on this website, and to request iFISH probes, please contact us at <a href="mailto:ifish4u@gmail.com">ifish4u@gmail.com</a></p>
+					<p><small>Background FISH image by E. Gelali.</small></p>
 				</div>
 				<div id="links-list" class="col col-xl-6 col-12 text-left">
 					<h4>Useful links...</h4>
