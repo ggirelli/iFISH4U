@@ -13,6 +13,14 @@
 
 			<nav aria-label="breadcrumb">
 				<ol class="breadcrumb">
+					<li class="dropdown">
+						<a href="" id="dropdownMenuButton" class="fas fa-bars dropdown-toggle mr-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<a class="dropdown-item inactive" href="/browse">Browse</a>
+							<a class="dropdown-item" href="/probe-design/">Design</a>
+							<a class="dropdown-item" href="https://ggirelli.github.io/iFISH-probe-design/install">Install</a>
+						</div>
+					</li>
 					<li class="breadcrumb-item"><a href="/">Home</a></li>
 					<li class="breadcrumb-item active" aria-current="page">Download</li>
 				</ol>
