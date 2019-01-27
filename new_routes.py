@@ -1,5 +1,6 @@
 pdApp.tprefix = "iFISH4U|Probe Design|"
 pdApp.vd['breadcrumbs'] = True
+pdApp.SHOW_COOKIE_CONSENT_BANNER = True
 
 @root.route("/browse")
 @bot.view("browse")
