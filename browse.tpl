@@ -20,7 +20,12 @@
 	
 			<div id="abstract" class="row">
 				<div class="col col-xl-12">
-					<b>Short abstract explaining what is available in the browse page and how to use this interface.</b> The idea is to have an interactive form where to select one or more chromosomes. Then, select one or more probes by clicking on them. Hovering over a probe should show the regione labeled. Also, chromosomes should be showed either with the same X axis or chromosome-wise. Also, allow to un/select all. And to filter based on a region of interest.
+					<p>On this page, you can browse all the probes currently present in the iFISH repository, and see which probes have been individually tested and validated. All the probes are specific for the human genome. As we are continuously expanding our repository, please check this page regularly to see which new probes have been added.</p>
+
+					<p>If you are interested in using these probes, we can provide PCR products for single or multiple probes, which you can then <i>in vitro</i> transcribe and convert to ready-to-use single-stranded DNA probes. As we are a non-profit academic research group, we will only charge you with the shipping fee and a small contribution for the maintenance of our repository.</p>
+
+					<p>To request PCR products, please select one or more probes, click ‘Request PCR products for these probes’, and then send us the downloaded list with a request email to ifish4u@gmail.com. We will then contact you back to discuss the shipment and payment details.</p>
+					
 				</div>
 			</div>
 

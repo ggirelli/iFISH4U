@@ -19,12 +19,13 @@
 
 			<div id="abstract" class="row">
 				<div class="col col-xl-12">
-					<b>Short abstract explaining what is available in this homepage.</b> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					<p>Welcome to iFISH4U! If you have landed here, chances are high that you are interested in DNA FISH (fluorescence <i>in situ</i> hybridization, not the animal) and that you are looking for user-friendly tools for designing FISH probes against your genomic target(s) of interest. You might also want to see which probes are already available and have been tested by us, and request them for a trial. If this is the case, you have come to the right place!</p>
+
+					<p>This website will enable you to fully benefit from iFISH: a free and comprehensive resource, which we buolt, consisting of user-friendly tools for designing oligonucleotide-based DNA FISH probes, and of a growing repository of probes against multiple genomic targets, which we have already tested and validated.</p>
+
+					<p>Here, you can <a href="browse">browse</a> and request available probes, <a href="probe-design">design</a> new ones, <a href="download">download</a> our databases of oligonucleotide sequences, and learn how to <a href="https://ggirelli.github.io/iFISH-probe-design/install">install</a> our tools on your own machine.</p>
+					
+					<p>We hope that you will find this website useful, and please let us know how we should improve.</p>
 				</div>
 			</div>
 
@@ -60,13 +61,7 @@
 				<div class="col col-xl-6 col-12 text-left">
 					<ul>
 						<li>
-							<b>Here, reference to the iFISH paper and additional details?</b>
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-							quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-							consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-							cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-							proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+							For questions and feedback on this website, and to request iFISH probes, please contact us at <a href="mailto:ifish4u@gmail.com">ifish4u@gmail.com</a>
 						</li>
 						<li>
 							Background FISH image by E. Gelali.
@@ -77,19 +72,13 @@
 					<h4>Useful links...</h4>
 					<ul>
 						<li>
-							<a href="#">A link...</a>
+							Our iFISH paper is currently under revision.
 						</li>
 						<li>
-							<a href="#">A link...</a>
+							Check out <a href="https://link.springer.com/protocol/10.1007/978-1-4939-7768-0_17" target="_new">our book chapter</a>, where we describe the DNA FISH protocols that we routinely use in our lab.
 						</li>
 						<li>
-							<a href="#">A link...</a>
-						</li>
-						<li>
-							<a href="#">A link...</a>
-						</li>
-						<li>
-							<a href="#">A link...</a>
+							iFISH4U is offered by the <a href="https://bienkocrosettolabs.org/" target="_new">Bienko and Crosetto labs</a>. Please visit out website to learn what we are interested in and what we do.
 						</li>
 					</ul>
 				</div>
