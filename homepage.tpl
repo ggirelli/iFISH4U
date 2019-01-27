@@ -61,9 +61,8 @@
 				<div class="col col-xl-6 col-12 text-left">
 					<h4>Contact us</h4>
 					<p>For questions and feedback on this website, and to request iFISH probes, please contact us at <a href="mailto:ifish4u@gmail.com">ifish4u@gmail.com</a></p>
-					<h5>Credits</h5>
-					<p><small>iFISH4U designed and implemented by G. Girelli, from scratch.</small></p>
-					<p><small>Background FISH image by E. Gelali.</small></p>
+					<h4>Credits</h4>
+					<p>iFISH4U was designed and implemented by G. Girelli, from scratch.<br/>Background FISH image by E. Gelali.</p>
 				</div>
 				<div id="links-list" class="col col-xl-6 col-12 text-left">
 					<h4>Useful links...</h4>
