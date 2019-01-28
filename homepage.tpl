@@ -21,7 +21,7 @@
 				<div class="col col-xl-12">
 					<p>Welcome to <b>iFISH4U</b>! If you have landed here, chances are high that you are interested in DNA FISH (fluorescence <i>in situ</i> hybridization, not the animal) and that you are looking for user-friendly tools for designing FISH probes against your genomic target(s) of interest. You might also want to see which probes are already available and have been tested by us, and request them for a trial. If this is the case, you have come to the right place!</p>
 
-					<p>This website will enable you to fully benefit from iFISH: a free and comprehensive resource, which we buolt, consisting of user-friendly tools for designing oligonucleotide-based DNA FISH probes, and of a growing repository of probes against multiple genomic targets, which we have already tested and validated.</p>
+					<p>This website will enable you to fully benefit from iFISH: a free and comprehensive resource, which we built, consisting of user-friendly tools for designing oligonucleotide-based DNA FISH probes, and of a growing repository of probes against multiple genomic targets, which we have already tested and validated.</p>
 
 					<p>Here, you can <a href="browse">browse</a> and request available probes, <a href="probe-design">design</a> new ones, <a href="download">download</a> our databases of oligonucleotide sequences, and learn how to <a href="https://ggirelli.github.io/iFISH-probe-design/install">install</a> our tools on your own machine.</p>
 
