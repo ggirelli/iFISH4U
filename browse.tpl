@@ -76,7 +76,7 @@
 						<label><input type="checkbox" id="showAllIdeograms"> Disable vertical scrolling</label>
 					</p>
 					<div class="col col-12">
-						<form id="regionFilter"><input type="text" name="region" class="form-control mb-3" placeholder="Write a region here to search select all probes in it. e.g., chr1:1000000-2000000" /></form>
+						<form id="regionFilter"><input type="text" name="region" class="form-control mb-3" placeholder="Write a region here to select all probes in it. e.g., chr1:1000000-2000000" /></form>
 						<input type="text" id="regionInfo" class="form-control mb-3" placeholder="Hover over a cytoband/probe to view its details here." disabled/>
 					</div>
 				</div>
