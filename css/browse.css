@@ -25,6 +25,14 @@
 	stroke-width: 4;
 }
 
+.chromWrap circle {
+	fill: #989898;
+}
+
+.chromWrap circle.selected {
+	fill: red;
+}
+
 #d3wrapper .svgWrap {
 	overflow: visible;
 }

@@ -14,6 +14,7 @@ chromList.push("chrX");
 //chromList.push("chrY");
 
 window.xByChrom = {};
+window.selectedProbes = [];
 
 plot_single_chromosome = function(chrom, chromData, chart, chartWidth, x) {
 	if (typeof x === 'undefined') {
@@ -115,9 +116,7 @@ plot_all_chromosomes = function(_callback) {
 				$("#regionInfo")[0].value = "";
 			});
 		}
-	);
-
-	_callback();
+	).then(_callback);
 }
 
 plot_all_probes = function() {
@@ -141,28 +140,66 @@ plot_all_probes = function() {
 				chromData = chromDict[chrom];
 
 				var chart = d3.select(`#d3wrapper .chart.${chrom}`);
-				
 				var wrapper = chart.append("g").attr("data-wrapping", "probes");
-
-				var bar = wrapper.selectAll("g")
+				var probe = wrapper.selectAll("g")
 						.data(chromData)
 					.enter().append("g")
-						.attr("data-region", function(d) {
-							return `[${d.name}] ${d.chrom}:${d.chromStart}-${d.chromEnd}`;
+						.filter(function(d) {
+							return -1 == $.inArray(d.name, window.selectedProbes)
 						});
-
-				bar.append("circle")
+				probe.append("circle")
 					.attr("cx", function(d) { return xByChrom[chrom]((d.chromStart + d.chromEnd) / 2) })
 					.attr("cy", barHeight * 2)
 					.attr("r", barHeight * .25)
-					.style("fill", "#656565");
+					.attr("data-region", function(d) {
+						return `[${d.name}] ${d.chrom}:${d.chromStart}-${d.chromEnd}`;
+					})
+					.attr("data-name", function(d) { return d.name; });
+
+				var selWrapper = chart.append("g").attr("data-wrapping", "selected-probes");
+				var selectedProbe = selWrapper.selectAll("g")
+						.data(chromData)
+					.enter().append("g")
+						.filter(function(d) {
+							return -1 != $.inArray(d.name, window.selectedProbes)
+						});
+				selectedProbe.append("circle")
+					.attr("cx", function(d) { return xByChrom[chrom]((d.chromStart + d.chromEnd) / 2) })
+					.attr("cy", barHeight * 2)
+					.attr("r", barHeight * .25)
+					.attr("data-region", function(d) {
+						return `[${d.name}] ${d.chrom}:${d.chromStart}-${d.chromEnd}`;
+					})
+					.attr("data-name", function(d) { return d.name; })
+					.attr("class", "selected");
 			}
 
-			$(".chromWrap g[data-wrapping='probes'] g").mouseover(function() {
+			$(".chromWrap circle").mouseover(function() {
 				$("#regionInfo")[0].value = "Probe: " + $(this).attr("data-region");
 			});
-			$(".chromWrap g[data-wrapping='probes'] g").mouseout(function() {
+			$(".chromWrap circle").mouseout(function() {
 				$("#regionInfo")[0].value = "";
+			});
+
+			$(".chromWrap circle").click(function() {
+				if ( $(this).hasClass("selected") ) {
+					$(this).removeClass("selected");
+				} else {
+					$(this).addClass("selected");
+				}
+				
+				$("#selectedProbesList").children().remove();
+				window.selectedProbes = [];
+				$(".chromWrap circle.selected").each(function(index, data) {
+					$("#selectedProbesList").append($(`<li class="mb-1">${$(data).attr("data-region")}</li>`));
+					window.selectedProbes.push($(data).attr("data-name"));
+				})
+
+				if ( 0 == window.selectedProbes.length ) {
+					$(".final-btn").attr("disabled", "disabled");
+				} else {
+					$(".final-btn").attr("disabled", null);
+				}
 			});
 		}
 
@@ -181,18 +218,18 @@ $(document).ready(function() {
 	for (var i = 0; i < chromList.length; i++) {
 		chrom = chromList[i];
 		$("#chromSelector .chromList").append(
-			$(`<label class="col col-6 col-sm-4 col-md-3 col-xl-2"><input type='checkbox' id='${chrom}Selector' checked/>&nbsp;${chrom}</label>`));
+			$(`<label class="col col-6 col-sm-4 col-md-4 col-xl-4"><input type='checkbox' id='${chrom}Selector' checked/>&nbsp;${chrom}</label>`));
 	}
 
 	refreshPlot();
 	$("#chromSameScale").change(refreshPlot)
 	$("#chromSelector .chromList input").change(refreshPlot)
 
-	$("#fitTopage").change(function() {
+	$("#showAllIdeograms").change(function() {
 		if ( $(this).is(":checked") ) {
-			$("#d3wrapper").css({"height" : "400px"});
-		} else {
 			$("#d3wrapper").css({"height" : "auto"});
+		} else {
+			$("#d3wrapper").css({"height" : "400px"});
 		}
 	})
 })

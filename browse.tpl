@@ -49,29 +49,50 @@
 
 				<small class="mb-3">Please note that all our iFISH probes were designed on the <code>hg19</code> reference genome.</small>
 
-				<form>
-					<div class="card mb-3">
-						<div class="card-body" id="chromSelector">
-							<h5 class="card-title">Select chromosomes of interest:</h5>
-							<div class="chromList"></div>
+				<form class="row">
+					<div class="col col-12 col-xl-6">
+						<div class="card mb-3">
+							<div class="card-body" id="chromSelector">
+								<h5 class="card-title">Select chromosomes to visualize:</h5>
+								<div class="chromList"></div>
+							</div>
+						</div>
+						<div class="row mb-3">
+							<div class="col col-6"><a class="btn btn-success btn-block" role="button" href="javascript:$('#chromSelector .chromList input').prop('checked', true);refreshPlot();">
+								Select all chromosomes
+							</a></div>
+							<div class="col col-6"><a class="btn btn-danger btn-block" role="button" href="javascript:console.log(1);$('#chromSelector .chromList input').prop('checked', false);refreshPlot();">
+								Unselect all chromosomes
+							</a></div>
 						</div>
 					</div>
-					<div class="row mb-3">
-						<div class="col col-6"><a class="btn btn-success btn-block" role="button" href="javascript:$('#chromSelector .chromList input').prop('checked', true);refreshPlot();">
-							Select all chromosomes
-						</a></div>
-						<div class="col col-6"><a class="btn btn-danger btn-block" role="button" href="javascript:console.log(1);$('#chromSelector .chromList input').prop('checked', false);refreshPlot();">
-							Unselect all chromosomes
-						</a></div>
+					<div class="col col-12 col-xl-6">
+						<div class="card" style="height: 100%;">
+							<div class="card-body">
+								<h5 class="card-title">Selected probes:</h5>
+								<ul id="selectedProbesList">
+								</ul>
+							</div>
+						</div>
 					</div>
-					<p>
-						<label><input type="checkbox" id="chromSameScale" checked> Use the same scale for all chromosomes</label><br />
-						<label><input type="checkbox" id="fitTopage" checked> Fit ideograms to the page (use scrollbar)</label>
+					<p class="col col-12">
+						<label><input type="checkbox" id="chromSameScale" checked> Fit ideograms to the page (rescale)</label><br />
+						<label><input type="checkbox" id="showAllIdeograms"> Disable vertical scrolling</label>
 					</p>
-					<input type="text" id="regionFilter" class="form-control mb-3" placeholder="Write a region here to search select all probes in it. e.g., chr1:1000000-2000000" />
-					<input type="text" id="regionInfo" class="form-control mb-3" placeholder="Hover over a cytoband/probe to view its details here." />
+					<div class="col col-12">
+						<input type="text" id="regionFilter" class="form-control mb-3" placeholder="Write a region here to search select all probes in it. e.g., chr1:1000000-2000000" />
+						<input type="text" id="regionInfo" class="form-control mb-3" placeholder="Hover over a cytoband/probe to view its details here." />
+					</div>
 				</form>
 				<div id="d3wrapper"></div>
+				<div class="row">
+					<div class="col-12">
+						<button id="download-btn" class="btn btn-success btn-block btn-lg mt-3 final-btn" disabled><span class="fas fa-download"></span>&nbsp;Download selected probes</button>
+					</div>
+					<div class="col-12">
+						<button id="request-btn" class="btn btn-primary btn-block btn-lg mt-3 final-btn" disabled><span class="fas fa-shipping-fast"></span>&nbsp;Request selected probes</button>
+					</div>
+				</div>
 			</p>
 
 		</div>
