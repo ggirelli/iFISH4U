@@ -1,3 +1,5 @@
+import pandas as pd
+
 pdApp.tprefix = "iFISH4U|Probe Design|"
 pdApp.vd['breadcrumbs'] = True
 pdApp.vd['SHOW_COOKIE_CONSENT_BANNER'] = True
@@ -28,3 +30,19 @@ def callback(path):
 @root.route('/custom_css/<path>')
 def callback(path):
     return bot.static_file(path, f'{os.path.dirname(args.custom_routes)}/css/')
+
+@root.route('/custom_data/<path>')
+def callback(path):
+    return bot.static_file(path, f'{os.path.dirname(args.custom_routes)}/data/')
+
+@root.route('/custom/giemsa_bands')
+def callback():
+	giemsa = pd.read_csv(os.path.join(os.path.dirname(args.custom_routes), 'data', 'hg19.giemsa_bands.txt'), "\t")
+	return giemsa.to_json(orient = 'records')
+
+@root.route('/custom/giemsa_bands/chr/<chrom>')
+def callback(chrom):
+	giemsa = pd.read_csv(os.path.join(os.path.dirname(args.custom_routes), 'data', 'hg19.giemsa_bands.txt'), "\t")
+	giemsa = giemsa.loc[giemsa['chrom'] == chrom]
+	giemsa = giemsa.reset_index()
+	return giemsa.to_json(orient = 'records')

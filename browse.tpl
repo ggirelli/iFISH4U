@@ -37,6 +37,178 @@
 				</div>
 			</div>
 
+			<h1 style="color: red;">!Work in progress!</h1>
+
+			<p>
+				<h2>New D3 based interface</h2>
+
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<style>
+
+#d3wrapper {
+	margin-top: 1em;
+	border: 1px solid #989898;
+	border-top: none;
+}
+
+.chart text {
+  fill: black;
+  font-family: arial;
+  font-size: 1.5em;
+  text-anchor: end;
+}
+
+.chromWrap {
+	border-top: 1px solid #989898;
+}
+
+.chromWrap g rect:hover,
+.chromWrap g polyline:hover {
+	stroke: blue;
+	stroke-width: 2;
+}
+
+</style>
+
+<form>
+	<label><input type="checkbox" id="chromSameScale" checked> Use the same scale for all chromosomes</label>
+	<input type="text" id="bandInfo" class="form-control" placeholder="Hover over a cytoband to view its details here." />
+</form>
+<div id="d3wrapper"></div>
+
+<script type="text/javascript">
+
+var barHeight = 20;
+
+var color = d3.scaleOrdinal()
+    .domain(["gneg", "gpos25", "gpos50", "gpos75", "gpos100",
+        "acen", "gvar", "stalk"])
+    .range(["#DDDDDD", "#9A9A9A", "#787878", "#555555", "#333333",
+        "#FF0000", "#C4FFFC", "#AFE6FF"]);
+
+var chartWrapper = d3.select("#d3wrapper")
+
+var chromList = [];
+for (var i = 1; i <= 22; i++) {
+	chromList.push("chr" + i);
+}
+chromList.push("chrX");
+//chromList.push("chrY");
+
+plot_single_chromosome = function(chrom, chromData, chart, chartWidth, x) {
+	if (typeof x === 'undefined') {
+	    x = d3.scaleLinear().range([0, chartWidth])
+	    	.domain([0, d3.sum(chromData, function(d) {
+	    		return d.chromEnd - d.chromStart;
+	    	})]);
+	}
+
+	chart.attr("height", barHeight * 3);
+
+	var bar = chart.selectAll("g")
+			.data(chromData)
+		.enter().append("g")
+			.attr("data-region", function(d) {
+				return `[${d.name}] ${d.chrom}:${d.chromStart}-${d.chromEnd} (${d.gieStain})`;
+			});
+
+	bar.filter(function(d) { return d.gieStain != "acen" })
+		.append("rect")
+		.attr("x", function(d) { return x(d.chromStart) })
+		.attr("y", 0)
+		.attr("width", function(d) { return x(d.chromEnd - d.chromStart); })
+		.attr("height", barHeight - 1)
+		.style("fill", function(d) { return color(d.gieStain) });
+
+	bar.filter(function(d) { return d.gieStain == "acen" })
+		.filter(function(d, i) { return i == 0 })
+		.append("polyline")
+		.style("fill", function(d) { return color(d.gieStain) })
+		.attr("points", function(d) {
+			points = `${x(d.chromStart)},0\n`;
+			points += `${x(d.chromStart)},${barHeight}\n`;
+			points += `${x(d.chromEnd)},${barHeight/2}\n`;
+			points += `${x(d.chromStart)},0`;
+			return(points)
+		});
+	bar.filter(function(d) { return d.gieStain == "acen" })
+		.filter(function(d, i) { return i == 1 })
+		.append("polyline")
+		.style("fill", function(d) { return color(d.gieStain) })
+		.attr("points", function(d) {
+			points = `${x(d.chromEnd)},0\n`;
+			points += `${x(d.chromEnd)},${barHeight}\n`;
+			points += `${x(d.chromStart)},${barHeight/2}\n`;
+			points += `${x(d.chromEnd)},0`;
+			return(points)
+		});
+
+	chart.append("text")
+		.attr("x", -10)
+		.attr("y", barHeight / 2)
+		.attr("dy", ".35em")
+		.text(chrom);
+}
+
+plot_all_chromosomes = function() {
+	d3.json("/custom/giemsa_bands", function(d) { return(d); })
+		.then(function(data) {
+			chromGrouped = d3.nest().key(function(d) { return d.chrom }).entries(data)
+			var chartWidth = 1920;
+
+			chromSizes = []
+			chromDict = {}
+			for (var i = chromGrouped.length - 1; i >= 0; i--) {
+				chrom = chromGrouped[i].key;
+				chromDict[chrom] = chromGrouped[i].values;
+				chromSizes.push(d3.max(chromDict[chrom], function(d) { return d.chromEnd }))
+			}
+		    
+			for (var i = 0; i < chromList.length; i++) {
+				chrom = chromList[i];
+				chromData = chromDict[chrom];
+
+				chartWrapper.append("svg")
+					.attr("class", `chart col col-12 chromWrap ${chrom}`)
+					.attr("viewBox", `-100 -10 ${chartWidth + 100} ${barHeight * 3 + 10}`)
+	  				.attr("preserveAspectRatio", "xMidYMid meet")
+
+				chart = d3.select(`#d3wrapper .chart.${chrom}`)
+				    .attr("width", chartWidth+100);
+
+				if ( $("#chromSameScale").is(":checked") ) {
+					plot_single_chromosome(chrom, chromData, chart, chartWidth,
+						d3.scaleLinear().range([0, chartWidth]).domain([0, d3.max(chromSizes)]));
+				} else {
+					plot_single_chromosome(chrom, chromData, chart, chartWidth);
+				}
+			}
+
+			$(".chromWrap g").mouseover(function() {
+				$("#bandInfo")[0].value = $(this).attr("data-region");
+			});
+
+			$(".chromWrap g").mouseout(function() {
+				$("#bandInfo")[0].value = "";
+			});
+		}
+	);
+}
+
+$(document).ready(function() {
+	$("#d3wrapper").children().remove();
+	plot_all_chromosomes();
+})
+$("#chromSameScale").change(function(e) {
+	$("#d3wrapper").children().remove();
+	plot_all_chromosomes();
+})
+
+</script>
+			</p>
+
+			<h2>Old svg image</h2>
+
 			<div id="ideogram" class="col-12">
 				<svg
 				   xmlns:dc="http://purl.org/dc/elements/1.1/"
