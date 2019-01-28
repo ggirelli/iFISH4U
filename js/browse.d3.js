@@ -16,6 +16,21 @@ chromList.push("chrX");
 window.xByChrom = {};
 window.selectedProbes = [];
 
+updateProbeList = function() {
+	$("#selectedProbesList").children().remove();
+	window.selectedProbes = [];
+	$(".chromWrap circle.selected").each(function(index, data) {
+		$("#selectedProbesList").append($(`<li class="mb-1">${$(data).attr("data-region")}</li>`));
+		window.selectedProbes.push($(data).attr("data-name"));
+	})
+
+	if ( 0 == window.selectedProbes.length ) {
+		$(".final-btn").attr("disabled", "disabled");
+	} else {
+		$(".final-btn").attr("disabled", null);
+	}
+}
+
 plot_single_chromosome = function(chrom, chromData, chart, chartWidth, x) {
 	if (typeof x === 'undefined') {
 	    x = d3.scaleLinear().range([0, chartWidth])
@@ -90,9 +105,26 @@ plot_all_chromosomes = function(_callback) {
 
 				chromData = chromDict[chrom];
 
-				chartWrapper.append("div")
+		  		chartWrapper.append("div")
 						.attr("class", "svgWrap")
-					.append("h5").text(chrom)
+						.attr("id", `${chrom}_svgWrap`)
+					.append("h5")
+						.text(`${chrom}:`);
+
+				chartWrapper.select(`#${chrom}_svgWrap`).select("h5")
+					.append("button")
+						.attr("class", "btn btn-sm btn-success ml-3 select-chrom-probes")
+						.attr("data-target-chrom", chrom)
+						.text("add all");
+
+		  		chartWrapper.select(`#${chrom}_svgWrap`).select("h5")
+					.append("button")
+						.attr("class", "btn btn-sm btn-danger ml-3 unselect-chrom-probes")
+						.attr("data-target-chrom", chrom)
+						.text("remove all");
+
+				chartWrapper.select(`#${chrom}_svgWrap`)
+						.attr("class", "svgWrap")
 					.append("svg")
 						.attr("class", `chart col col-12 chromWrap ${chrom}`)
 						.attr("viewBox", `-100 0 ${chartWidth + 150} ${barHeight * 3}`)
@@ -114,6 +146,26 @@ plot_all_chromosomes = function(_callback) {
 			});
 			$(".chromWrap g[data-wrapping='giemsa'] g").mouseout(function() {
 				$("#regionInfo")[0].value = "";
+			});
+			$(".select-chrom-probes").click(function(e) {
+				chrom = $(this).attr("data-target-chrom");
+				$(`.chromWrap.${chrom} circle`).each(function(index, probe) {
+					if ( !$(probe).hasClass("selected") ) {
+						$(probe).addClass("selected");
+					}
+				});
+
+				updateProbeList();
+			});
+			$(".unselect-chrom-probes").click(function(e) {
+				chrom = $(this).attr("data-target-chrom");
+				$(`.chromWrap.${chrom} circle`).each(function(index, probe) {
+					if ( $(probe).hasClass("selected") ) {
+						$(probe).removeClass("selected");
+					}
+				});
+
+				updateProbeList();
 			});
 		}
 	).then(_callback);
@@ -188,22 +240,10 @@ plot_all_probes = function() {
 					$(this).addClass("selected");
 				}
 				
-				$("#selectedProbesList").children().remove();
-				window.selectedProbes = [];
-				$(".chromWrap circle.selected").each(function(index, data) {
-					$("#selectedProbesList").append($(`<li class="mb-1">${$(data).attr("data-region")}</li>`));
-					window.selectedProbes.push($(data).attr("data-name"));
-				})
-
-				if ( 0 == window.selectedProbes.length ) {
-					$(".final-btn").attr("disabled", "disabled");
-				} else {
-					$(".final-btn").attr("disabled", null);
-				}
+				updateProbeList();
 			});
 		}
-
-	);
+	).then(updateProbeList);
 }
 
 refreshPlot = function() {

@@ -67,9 +67,9 @@
 						</div>
 					</div>
 					<div class="col col-12 col-xl-6">
-						<div class="card" style="height: 100%;">
+						<div class="card" id="selectedProbesCard">
+							<div class="card-header">Selected probes:</div>
 							<div class="card-body">
-								<h5 class="card-title">Selected probes:</h5>
 								<ul id="selectedProbesList">
 								</ul>
 							</div>

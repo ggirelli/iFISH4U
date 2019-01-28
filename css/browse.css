@@ -40,3 +40,8 @@
 #d3wrapper svg {
 	min-width: 900px;
 }
+
+#selectedProbesCard .card-body {
+	height: 21.1em;
+	overflow: auto;
+}
