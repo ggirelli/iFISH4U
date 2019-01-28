@@ -31,6 +31,10 @@ def callback(path):
 def callback(path):
     return bot.static_file(path, f'{os.path.dirname(args.custom_routes)}/css/')
 
+@root.route('/custom_js/<path>')
+def callback(path):
+    return bot.static_file(path, f'{os.path.dirname(args.custom_routes)}/js/')
+
 @root.route('/custom_data/<path>')
 def callback(path):
     return bot.static_file(path, f'{os.path.dirname(args.custom_routes)}/data/')
@@ -46,3 +50,11 @@ def callback(chrom):
 	giemsa = giemsa.loc[giemsa['chrom'] == chrom]
 	giemsa = giemsa.reset_index()
 	return giemsa.to_json(orient = 'records')
+
+@root.route('/custom/probe_list')
+def callback():
+	probes = pd.read_csv(
+		os.path.join(os.path.dirname(args.custom_routes),
+			'data', 'tda_dna-unifish_oligopool_chr_spotting.bed'),
+		'\t')
+	return probes.to_json(orient = "records")

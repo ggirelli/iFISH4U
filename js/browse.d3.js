@@ -1,0 +1,198 @@
+var barHeight = 50;
+
+var color = d3.scaleOrdinal()
+    .domain(["gneg", "gpos25", "gpos50", "gpos75", "gpos100",
+        "acen", "gvar", "stalk"])
+    .range(["#DDDDDD", "#9A9A9A", "#787878", "#555555", "#333333",
+        "#FF0000", "#C4FFFC", "#AFE6FF"]);
+
+var chromList = [];
+for (var i = 1; i <= 22; i++) {
+	chromList.push("chr" + i);
+}
+chromList.push("chrX");
+//chromList.push("chrY");
+
+window.xByChrom = {};
+
+plot_single_chromosome = function(chrom, chromData, chart, chartWidth, x) {
+	if (typeof x === 'undefined') {
+	    x = d3.scaleLinear().range([0, chartWidth])
+	    	.domain([0, d3.sum(chromData, function(d) {
+	    		return d.chromEnd - d.chromStart;
+	    	})]);
+	}
+	window.xByChrom[chrom] = x;
+
+	chart.attr("height", barHeight * 3);
+
+	var wrapper = chart.append("g").attr("data-wrapping", "giemsa");
+
+	var bar = wrapper.selectAll('g').data(chromData)
+		.enter().append("g")
+			.attr("data-region", function(d) {
+				return `[${d.name}] ${d.chrom}:${d.chromStart}-${d.chromEnd} (${d.gieStain})`;
+			});
+
+	bar.filter(function(d) { return d.gieStain != "acen" })
+		.append("rect")
+		.attr("x", function(d) { return x(d.chromStart) })
+		.attr("y", 0)
+		.attr("width", function(d) { return x(d.chromEnd - d.chromStart); })
+		.attr("height", barHeight - 1)
+		.style("fill", function(d) { return color(d.gieStain) });
+
+	bar.filter(function(d) { return d.gieStain == "acen" })
+		.filter(function(d, i) { return i == 0 })
+		.append("polyline")
+		.style("fill", function(d) { return color(d.gieStain) })
+		.attr("points", function(d) {
+			points = `${x(d.chromStart)},0\n`;
+			points += `${x(d.chromStart)},${barHeight}\n`;
+			points += `${x(d.chromEnd)},${barHeight/2}\n`;
+			points += `${x(d.chromStart)},0`;
+			return(points)
+		});
+	bar.filter(function(d) { return d.gieStain == "acen" })
+		.filter(function(d, i) { return i == 1 })
+		.append("polyline")
+		.style("fill", function(d) { return color(d.gieStain) })
+		.attr("points", function(d) {
+			points = `${x(d.chromEnd)},0\n`;
+			points += `${x(d.chromEnd)},${barHeight}\n`;
+			points += `${x(d.chromStart)},${barHeight/2}\n`;
+			points += `${x(d.chromEnd)},0`;
+			return(points)
+		});
+}
+
+plot_all_chromosomes = function(_callback) {
+	d3.json("/custom/giemsa_bands", function(d) { return(d); })
+		.then(function(data) {
+			chromGrouped = d3.nest().key(function(d) { return d.chrom }).entries(data);
+			var chartWidth = 1920;
+
+			window.chromSizes = [];
+			chromDict = {};
+			for (var i = chromGrouped.length - 1; i >= 0; i--) {
+				chrom = chromGrouped[i].key;
+				chromDict[chrom] = chromGrouped[i].values;
+				chromSizes.push(d3.max(chromDict[chrom], function(d) { return d.chromEnd }));
+			}
+		    
+			for (var i = 0; i < chromList.length; i++) {
+				chrom = chromList[i];
+
+				if ( !$(`#${chrom}Selector`).is(":checked") ) {
+					continue;
+				}
+
+				chromData = chromDict[chrom];
+
+				chartWrapper.append("div")
+						.attr("class", "svgWrap")
+					.append("h5").text(chrom)
+					.append("svg")
+						.attr("class", `chart col col-12 chromWrap ${chrom}`)
+						.attr("viewBox", `-100 0 ${chartWidth + 150} ${barHeight * 3}`)
+		  				.attr("preserveAspectRatio", "xMidYMid meet")
+
+				chart = d3.select(`#d3wrapper .chart.${chrom}`)
+				    .attr("width", chartWidth);
+
+				if ( $("#chromSameScale").is(":checked") ) {
+					plot_single_chromosome(chrom, chromData, chart, chartWidth,
+						d3.scaleLinear().range([0, chartWidth]).domain([0, d3.max(chromSizes)]));
+				} else {
+					plot_single_chromosome(chrom, chromData, chart, chartWidth);
+				}
+			}
+
+			$(".chromWrap g[data-wrapping='giemsa'] g").mouseover(function() {
+				$("#regionInfo")[0].value = "Cytoband: " + $(this).attr("data-region");
+			});
+			$(".chromWrap g[data-wrapping='giemsa'] g").mouseout(function() {
+				$("#regionInfo")[0].value = "";
+			});
+		}
+	);
+
+	_callback();
+}
+
+plot_all_probes = function() {
+		d3.json("/custom/probe_list", function(d) { return(d); })
+		.then(function(data) {
+			chromGrouped = d3.nest().key(function(d) { return d.chrom }).entries(data);
+			
+			chromDict = {};
+			for (var i = chromGrouped.length - 1; i >= 0; i--) {
+				chrom = chromGrouped[i].key;
+				chromDict[chrom] = chromGrouped[i].values;
+			}
+
+			for (var i = 0; i < chromList.length; i++) {
+				chrom = chromList[i];
+
+				if ( !$(`#${chrom}Selector`).is(":checked") ) {
+					continue;
+				}
+
+				chromData = chromDict[chrom];
+
+				var chart = d3.select(`#d3wrapper .chart.${chrom}`);
+				
+				var wrapper = chart.append("g").attr("data-wrapping", "probes");
+
+				var bar = wrapper.selectAll("g")
+						.data(chromData)
+					.enter().append("g")
+						.attr("data-region", function(d) {
+							return `[${d.name}] ${d.chrom}:${d.chromStart}-${d.chromEnd}`;
+						});
+
+				bar.append("circle")
+					.attr("cx", function(d) { return xByChrom[chrom]((d.chromStart + d.chromEnd) / 2) })
+					.attr("cy", barHeight * 2)
+					.attr("r", barHeight * .25)
+					.style("fill", "#656565");
+			}
+
+			$(".chromWrap g[data-wrapping='probes'] g").mouseover(function() {
+				$("#regionInfo")[0].value = "Probe: " + $(this).attr("data-region");
+			});
+			$(".chromWrap g[data-wrapping='probes'] g").mouseout(function() {
+				$("#regionInfo")[0].value = "";
+			});
+		}
+
+	);
+}
+
+refreshPlot = function() {
+	$("#d3wrapper").children().remove();
+	plot_all_chromosomes(plot_all_probes);
+}
+
+$(document).ready(function() {
+
+	window.chartWrapper = d3.select("#d3wrapper")
+
+	for (var i = 0; i < chromList.length; i++) {
+		chrom = chromList[i];
+		$("#chromSelector .chromList").append(
+			$(`<label class="col col-6 col-sm-4 col-md-3 col-xl-2"><input type='checkbox' id='${chrom}Selector' checked/>&nbsp;${chrom}</label>`));
+	}
+
+	refreshPlot();
+	$("#chromSameScale").change(refreshPlot)
+	$("#chromSelector .chromList input").change(refreshPlot)
+
+	$("#fitTopage").change(function() {
+		if ( $(this).is(":checked") ) {
+			$("#d3wrapper").css({"height" : "400px"});
+		} else {
+			$("#d3wrapper").css({"height" : "auto"});
+		}
+	})
+})

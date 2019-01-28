@@ -1,0 +1,34 @@
+#d3wrapper {
+	overflow: auto;
+	height: 400px;
+	margin-top: 1em;
+	border: 1px solid #989898;
+	border-top: none;
+}
+
+.chart text {
+  fill: black;
+  font-family: arial;
+  font-size: 1.5em;
+  text-anchor: end;
+}
+
+.svgWrap {
+	padding: 1em;
+	border-top: 1px solid #989898;
+}
+
+.chromWrap g rect:hover,
+.chromWrap g circle:hover,
+.chromWrap g polyline:hover {
+	stroke: blue;
+	stroke-width: 4;
+}
+
+#d3wrapper .svgWrap {
+	overflow: visible;
+}
+
+#d3wrapper svg {
+	min-width: 900px;
+}
