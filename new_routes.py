@@ -58,3 +58,12 @@ def callback():
 			'data', 'tda_dna-unifish_oligopool_chr_spotting.bed'),
 		'\t')
 	return probes.to_json(orient = "records")
+
+@root.route('/custom/probe_list/pos/<chrom>\:<chromStart>-<chromEnd>')
+def callback(chrom, chromStart, chromEnd):
+	probes = pd.read_csv(os.path.join(os.path.dirname(args.custom_routes),
+		'data', 'tda_dna-unifish_oligopool_chr_spotting.bed'), '\t')
+	probes = probes.loc[probes['chrom'].values == chrom, :]
+	probes = probes.loc[probes['chromStart'].values >= int(chromStart), :]
+	probes = probes.loc[probes['chromEnd'].values <= int(chromEnd), :]
+	return probes.to_json(orient = "records")

@@ -274,7 +274,26 @@ $(document).ready(function() {
 	});
 
 	$("#regionFilter").submit(function(e) {
-		alert("Option not yet available.");
+		$.get(`/custom/probe_list/pos/${$(this).children('input').val()}`, {},
+			function(data) {
+				nProbes = 0;
+				for (var i = data.length - 1; i >= 0; i--) {
+					probe = data[i];
+					probe = $(`circle[data-name="${probe.name}"]`);
+					if ( !probe.hasClass("selected") ) {
+						probe.addClass("selected");
+						nProbes++;
+					}
+				}
+				alert(`${nProbes} probes added to selection.`);
+				$('#regionFilter input').val("");
+			}, 'json').then(updateProbeList);
+
+		$(document).ajaxError(function() {
+			alert(`Region '${$('#regionFilter input').val()}' not recognized.`);
+			$('#regionFilter input').val("");
+		});
+
 		e.preventDefault();
 	});
 
