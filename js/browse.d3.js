@@ -271,5 +271,23 @@ $(document).ready(function() {
 		} else {
 			$("#d3wrapper").css({"height" : "400px"});
 		}
-	})
+	});
+
+	$("#regionFilter").submit(function(e) {
+		alert("Option not yet available.");
+		e.preventDefault();
+	});
+
+	$("#request-btn").click(function(e) {
+		alert("Send us an email at ifish4u@gmail.com," +
+			" attaching the selected probes after downloading them." +
+			" You will now be redirected to your e-mail software." +
+			" (might take a few moments)");
+		window.location.href = "mailto:ifish4u@gmail.com";
+		e.preventDefault();
+	});
+	$("#download-btn").click(function(e) {
+		alert("Option not yet available.");
+		e.preventDefault();
+	});
 })

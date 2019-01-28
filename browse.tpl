@@ -39,17 +39,12 @@
 
 					<p>To request PCR products, please select one or more probes, click ‘Request PCR products for these probes’, and then send us the downloaded list with a request email to ifish4u@gmail.com. We will then contact you back to discuss the shipment and payment details.</p>
 					
+					<small class="mb-3">Please note that all our iFISH probes were designed on the <code>hg19</code> reference genome.</small>
 				</div>
 			</div>
 
-			<h1 style="color: red;">!Work in progress!</h1>
-
 			<p>
-				<h2>New D3 based interface</h2>
-
-				<small class="mb-3">Please note that all our iFISH probes were designed on the <code>hg19</code> reference genome.</small>
-
-				<form class="row">
+				<div class="row">
 					<div class="col col-12 col-xl-6">
 						<div class="card mb-3">
 							<div class="card-body" id="chromSelector">
@@ -64,6 +59,7 @@
 							<div class="col col-6"><a class="btn btn-danger btn-block" role="button" href="javascript:console.log(1);$('#chromSelector .chromList input').prop('checked', false);refreshPlot();">
 								Unselect all chromosomes
 							</a></div>
+							<small class="col col-12">Note that <b>unselecting</b> chromosomes also unselectes the correspnding probes.</small>
 						</div>
 					</div>
 					<div class="col col-12 col-xl-6">
@@ -80,10 +76,10 @@
 						<label><input type="checkbox" id="showAllIdeograms"> Disable vertical scrolling</label>
 					</p>
 					<div class="col col-12">
-						<input type="text" id="regionFilter" class="form-control mb-3" placeholder="Write a region here to search select all probes in it. e.g., chr1:1000000-2000000" />
-						<input type="text" id="regionInfo" class="form-control mb-3" placeholder="Hover over a cytoband/probe to view its details here." />
+						<form id="regionFilter"><input type="text" name="region" class="form-control mb-3" placeholder="Write a region here to search select all probes in it. e.g., chr1:1000000-2000000" /></form>
+						<input type="text" id="regionInfo" class="form-control mb-3" placeholder="Hover over a cytoband/probe to view its details here." disabled/>
 					</div>
-				</form>
+				</div>
 				<div id="d3wrapper"></div>
 				<div class="row">
 					<div class="col-12">

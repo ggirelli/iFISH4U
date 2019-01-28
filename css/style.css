@@ -8,7 +8,7 @@ h1, h2, h3, h4 {
 	font-weight: 800;
 }
 
-a:hover {
+a:not(.btn):hover {
 	color: #E38433 !important;
 }
 
