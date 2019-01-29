@@ -305,8 +305,10 @@ $(document).ready(function() {
 		window.location.href = "mailto:ifish4u@gmail.com";
 		e.preventDefault();
 	});
-	$("#download-btn").click(function(e) {
-		alert("Option not yet available.");
+	$(".download-btn").click(function(e) {
+		data = {'probes' : JSON.stringify(window.selectedProbes), 'primers' : 0};
+		if ( $(this).hasClass('with-primers') ) { data['primers'] = 1; }
+		document.location = `/custom/probe_download/?probes=${data['probes']}&primers=${data['primers']}`
 		e.preventDefault();
 	});
 })

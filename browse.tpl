@@ -82,13 +82,13 @@
 				</div>
 				<div id="d3wrapper"></div>
 				<div class="row">
-					<div class="col-6">
-						<button id="download-btn" class="btn btn-success btn-block btn-lg mt-3 final-btn" disabled><span class="fas fa-download"></span>&nbsp;Download selected probes (only target sequences)</button>
+					<div class="col col-6">
+						<button class="download-btn btn btn-success btn-block btn-lg mt-3 final-btn" disabled><span class="fas fa-download"></span>&nbsp;Get selected probes<br/><small>(only target sequences)</small></button>
 					</div>
-					<div class="col-6">
-						<button id="download-btn with-primers" class="btn btn-success btn-block btn-lg mt-3 final-btn" disabled><span class="fas fa-download"></span>&nbsp;Download selected probes (with primers)</button>
+					<div class="col col-6">
+						<button class="download-btn with-primers btn btn-success btn-block btn-lg mt-3 final-btn" disabled><span class="fas fa-download"></span>&nbsp;Get selected probes<br/><small>(with primers)</small></button>
 					</div>
-					<div class="col-12">
+					<div class="col col-12">
 						<button id="request-btn" class="btn btn-primary btn-block btn-lg mt-3 final-btn" disabled><span class="fas fa-shipping-fast"></span>&nbsp;Request selected probes</button>
 						<small>Please note that requested probes <b>always</b> have incorporated primers.</small>
 					</div>

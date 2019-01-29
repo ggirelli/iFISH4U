@@ -1,4 +1,7 @@
+from bottle import request, response
+import hashlib
 import pandas as pd
+import time
 
 pdApp.tprefix = "iFISH4U|Probe Design|"
 pdApp.vd['breadcrumbs'] = True
@@ -67,3 +70,32 @@ def callback(chrom, chromStart, chromEnd):
 	probes = probes.loc[probes['chromStart'].values >= int(chromStart), :]
 	probes = probes.loc[probes['chromEnd'].values <= int(chromEnd), :]
 	return probes.to_json(orient = "records")
+
+@root.get('/custom/probe_download/')
+def callback():
+	GET = dict(request.query)
+	probeList = GET['probes'].replace("[", "").replace("]", "").split(",")
+	withPrimers = int(GET['primers']) == 1
+	fastaTotal = [""]
+	for probeName in probeList:
+		probeName = probeName.strip('"')
+		if withPrimers:
+			probePath = f'{probeName}.with_primers.fa'
+		else:
+			probePath = f'{probeName}.fa'
+		probePath = os.path.join(os.path.dirname(args.custom_routes),
+			'data', 'probes', probePath)
+		if not os.path.isfile(probePath):
+			return f'ERROR: cannot find probe "{probeName}".'
+		else:
+			with open(probePath, 'r') as IH:
+				fastaTotal.append("".join(IH.readlines()))
+
+	encoder = hashlib.sha256()
+	encoder.update(bytes(str(time.time()), "utf-8"))
+	fastaName = encoder.hexdigest()
+	response.set_header('Content-Disposition',
+		f'attachment; filename="{fastaName}.fa"')
+	response.set_header('Content-Type', 'plain/txt')
+
+	return "".join(fastaTotal).strip()
