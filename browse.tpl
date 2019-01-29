@@ -59,7 +59,7 @@
 							<div class="col col-6"><a class="btn btn-danger btn-block" role="button" href="javascript:console.log(1);$('#chromSelector .chromList input').prop('checked', false);refreshPlot();">
 								Unselect all chromosomes
 							</a></div>
-							<small class="col col-12">Note that <b>unselecting</b> chromosomes also unselectes the correspnding probes.</small>
+							<small class="col col-12 mt-1">Note that <b>unselecting</b> a chromosome also unselects all its probes.</small>
 						</div>
 					</div>
 					<div class="col col-12 col-xl-6">
@@ -79,8 +79,14 @@
 						<form id="regionFilter"><input type="text" name="region" class="form-control mb-3" placeholder="Write a region here to select all probes in it. e.g., chr1:1000000-2000000" /></form>
 						<input type="text" id="regionInfo" class="form-control mb-3" placeholder="Hover over a cytoband/probe to view its details here." disabled/>
 					</div>
+					<div class="col col-12">
+						<button id="addAllProbes" class="btn btn-success btn-sm">add all</button>&nbsp;
+						<button id="removeAllProbes" class="btn btn-danger btn-sm">remove all</button>&nbsp;
+						<small>These buttons affect only probes on selected chromosomes.</small>
+					</div>
 				</div>
-				<div id="d3wrapper"></div>
+				<div id="d3wrapper">
+				</div>
 				<div class="row">
 					<div class="col col-6">
 						<button class="download-btn btn btn-success btn-block btn-lg mt-3 final-btn" disabled><span class="fas fa-download"></span>&nbsp;Get selected probes<br/><small>(only target sequences)</small></button>

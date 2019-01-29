@@ -115,13 +115,13 @@ plot_all_chromosomes = function(_callback) {
 					.append("button")
 						.attr("class", "btn btn-sm btn-success ml-3 select-chrom-probes")
 						.attr("data-target-chrom", chrom)
-						.text("add all");
+						.text(`add all probes of ${chrom}`);
 
 		  		chartWrapper.select(`#${chrom}_svgWrap`).select("h5")
 					.append("button")
 						.attr("class", "btn btn-sm btn-danger ml-3 unselect-chrom-probes")
 						.attr("data-target-chrom", chrom)
-						.text("remove all");
+						.text(`remove all probes of ${chrom}`);
 
 				chartWrapper.select(`#${chrom}_svgWrap`)
 						.attr("class", "svgWrap")
@@ -154,7 +154,6 @@ plot_all_chromosomes = function(_callback) {
 						$(probe).addClass("selected");
 					}
 				});
-
 				updateProbeList();
 			});
 			$(".unselect-chrom-probes").click(function(e) {
@@ -164,7 +163,6 @@ plot_all_chromosomes = function(_callback) {
 						$(probe).removeClass("selected");
 					}
 				});
-
 				updateProbeList();
 			});
 		}
@@ -310,5 +308,24 @@ $(document).ready(function() {
 		if ( $(this).hasClass('with-primers') ) { data['primers'] = 1; }
 		document.location = `/custom/probe_download/?probes=${data['probes']}&primers=${data['primers']}`
 		e.preventDefault();
+	});
+
+	$("#addAllProbes").click(function(e) {
+		console.log("add");
+		$(`.chromWrap circle`).each(function(index, probe) {
+			if ( !$(probe).hasClass("selected") ) {
+				$(probe).addClass("selected");
+			}
+		});
+		updateProbeList();
+	});
+	$("#removeAllProbes").click(function(e) {
+		console.log("remove");
+		$(`.chromWrap circle`).each(function(index, probe) {
+			if ( $(probe).hasClass("selected") ) {
+				$(probe).removeClass("selected");
+			}
+		});
+		updateProbeList();
 	});
 })
