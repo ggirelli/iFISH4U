@@ -77,7 +77,7 @@
 					</p>
 					<div class="col col-12">
 						<form id="regionFilter"><input type="text" name="region" class="form-control mb-3" placeholder="Write a region here to select all probes in it. e.g., chr1:1000000-2000000" /></form>
-						<input type="text" id="regionInfo" class="form-control mb-3" placeholder="Hover over a cytoband/probe to view its details here." disabled/>
+						<input type="text" id="regionInfo" class="form-control mb-3" placeholder="Hover over a cytoband/probe to view its details here. Click on a probe to add it to your selection." disabled/>
 					</div>
 					<div class="col col-12">
 						<button id="addAllProbes" class="btn btn-success btn-sm">add all</button>&nbsp;
