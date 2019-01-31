@@ -74,7 +74,7 @@
 							Check out <a href="https://link.springer.com/protocol/10.1007/978-1-4939-7768-0_17" target="_new">our book chapter</a>, where we describe the DNA FISH protocols that we routinely use in our lab.
 						</li>
 						<li>
-							iFISH4U is offered by the <a href="https://bienkocrosettolabs.org/" target="_new">Bienko and Crosetto labs</a>. Please visit out website to learn what we are interested in and what we do.
+							iFISH4U is offered by the <a href="https://bienkocrosettolabs.org/" target="_new">Bienko and Crosetto labs</a>. Please visit our website to learn what we are interested in and what we do.
 						</li>
 					</ul>
 				</div>
