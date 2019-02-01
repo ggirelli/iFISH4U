@@ -133,7 +133,7 @@ plot_all_chromosomes = function(_callback) {
 				chart = d3.select(`#d3wrapper .chart.${chrom}`)
 				    .attr("width", chartWidth);
 
-				if ( $("#chromSameScale").is(":checked") ) {
+				if ( !$("#chromSameScale").is(":checked") ) {
 					plot_single_chromosome(chrom, chromData, chart, chartWidth,
 						d3.scaleLinear().range([0, chartWidth]).domain([0, d3.max(chromSizes)]));
 				} else {
