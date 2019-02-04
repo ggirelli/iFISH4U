@@ -9,6 +9,7 @@ pdApp.vd['SHOW_COOKIE_CONSENT_BANNER'] = True
 pdApp.vd['menu_template'] = "design_menu.tpl"
 
 @root.route("/browse")
+@root.route("/browse/")
 @bot.view("browse")
 def callback():
 	d = {}
@@ -18,6 +19,7 @@ def callback():
 	return d
 
 @root.route("/download")
+@root.route("/download/")
 @bot.view("download")
 def callback():
 	d = {}
