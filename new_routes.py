@@ -123,6 +123,7 @@ def callback():
 	return static_file('iFISH.40mer.tsv.gz',
 		os.path.join(os.path.dirname(args.custom_routes),
 			'data', 'databases'),
+		download = "iFISH.40mer.hg19.gz",
 		mimetype = 'application/gzip')
 
 @root.route('/custom/dbdownload/clean/hg19')
@@ -130,6 +131,7 @@ def callback():
 	return static_file('iFISH.40mer.clean.tsv.gz',
 		os.path.join(os.path.dirname(args.custom_routes),
 			'data', 'databases'),
+		download = "iFISH.40mer.hg19.clean.gz",
 		mimetype = 'application/gzip')
 
 @root.route('/custom/dbdownload/chrom/<chrom>')
@@ -137,7 +139,7 @@ def callback(chrom):
 	return static_file(f'{chrom}.gz',
 		os.path.join(os.path.dirname(args.custom_routes),
 			'data', 'databases', 'iFISH.40mer.singleChr'),
-		download = f'iFISH.40mer.{chrom}.gz',
+		download = f'iFISH.40mer.hg19.{chrom}.gz',
 		mimetype = 'application/gzip')
 
 @root.route('/custom/dbdownload/clean/chrom/<chrom>')
@@ -145,5 +147,5 @@ def callback(chrom):
 	return static_file(f'{chrom}.gz',
 		os.path.join(os.path.dirname(args.custom_routes),
 			'data', 'databases', 'iFISH.40mer.clean.singleChr'),
-		download = f'iFISH.40mer.clean.{chrom}.gz',
+		download = f'iFISH.40mer.hg19.clean.{chrom}.gz',
 		mimetype = 'application/gzip')

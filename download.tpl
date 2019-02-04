@@ -29,8 +29,9 @@
 			<div id="abstract" class="row">
 				<div class="col col-12">
 					<p>
-						Here you can download our databases of oligonucleotide sequences. The software needed to run our probe design tool locally on your machine can be downloaded from its <a href="http://github.com/ggirelli/iFISH-probe-design">github repository</a>. You can find all the instructions on how to install and run our software <a href="https://ggirelli.github.io/iFISH-probe-design/install" target="_new">here</a>. As we are continuously designing new oligo databases, please check this page regularly to see which new databases have been added.<br/>
-						<small>All files are available in <code>gzip</code> format (<code>.gz</code>), more info <a href="https://fileinfo.com/extension/gz" target="_new">here</a>.</small>
+						Here you can download our <a href="https://ggirelli.github.io/iFISH-probe-design/database" target="_doc">databases</a> of oligonucleotide sequences. The software needed to run our probe design tool locally on your machine can be downloaded from its <a href="http://github.com/ggirelli/iFISH-probe-design">github repository</a>. You can find all the instructions on how to install and run our software <a href="https://ggirelli.github.io/iFISH-probe-design/install" target="_new">here</a>. As we are continuously designing new oligo databases, please check this page regularly to see which new databases have been added.<br/>
+						<small>All files are available in <code>gzip</code> format (<code>.gz</code>), more info <a href="https://fileinfo.com/extension/gz" target="_new">here</a>.</small><br/>
+						<small><b>Note:</b> the files below need to be formatted with <a href="https://ggirelli.github.io/iFISH-probe-design/scripts#ifpd_mkdb" target="_doc"><code>ifpd_mkdb</code></a> before they can be used.</small>
 					</p>
 				</div>
 
