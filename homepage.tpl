@@ -68,7 +68,7 @@
 					<h4>Useful links...</h4>
 					<ul>
 						<li>
-							Our iFISH paper is currently under revision.
+							Check out our iFISH paper <a href="https://www.nature.com/articles/s41467-019-09616-w" target="_paper">on Nature Communications</a>.
 						</li>
 						<li>
 							Check out <a href="https://link.springer.com/protocol/10.1007/978-1-4939-7768-0_17" target="_new">our book chapter</a>, where we describe the DNA FISH protocols that we routinely use in our lab.
