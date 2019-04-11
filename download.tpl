@@ -48,7 +48,7 @@
 								<ul>
 									<li>40-mers</li>
 									<li>35-80% GC-content</li>
-									<li>&plusmn;10 &deg;C Tm range</li>
+									<li>&plusmn;10 &deg;C Tm range around the average</li>
 									<li>7+ nt homopolymer filter</li>
 									<li>70% homology threshold</li>
 									<li>65 &deg;C secondary structure temperature</li>
@@ -90,7 +90,7 @@
 								<ul>
 									<li>40-mers</li>
 									<li>35-80% GC-content</li>
-									<li>&plusmn;10 &deg;C Tm range</li>
+									<li>&plusmn;10 &deg;C Tm range around the average</li>
 									<li>7+ nt homopolymer filter</li>
 									<li>70% homology threshold</li>
 									<li>65 &deg;C secondary structure temperature</li>
