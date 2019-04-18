@@ -7,7 +7,7 @@ pdApp.tprefix = "iFISH4U|Probe Design|"
 pdApp.vd['breadcrumbs'] = True
 pdApp.vd['SHOW_COOKIE_CONSENT_BANNER'] = True
 pdApp.vd['menu_template'] = "design_menu.tpl"
-pdApp.vd['google_analytics_token'] = "UA-99031010-5"
+pdApp.vd['google_analytics_token'] = "UA-99031010-6"
 
 class EnableCors(object):
 	'''https://stackoverflow.com/a/17262900/1593536'''
