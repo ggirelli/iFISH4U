@@ -58,6 +58,14 @@
 			</div>
 
 			<div id="bottom-text-wrap" class="row">
+				<div class="col col-12 text-left mb-0">
+					<h4>News</h4>
+					<ul>
+						<li>
+							<b>2019-05-29</b>: released <code>ifpd v2.0.3</code>, fixing a few bugs in the design pipeline/interface. Check out the <a href="https://github.com/ggirelli/iFISH-probe-design/releases/tag/v2.0.3">changelog</a> for details! Do not forget to report any bugs you encounter, or request new features, by opening a ticket <a href="https://github.com/ggirelli/iFISH-probe-design/issues">here</a> or dropping us an <a href="mailto:ifish4u@gmail.com">email</a>.
+						</li>
+					</ul>
+				</div>
 				<div class="col col-xl-6 col-12 text-left">
 					<h4>Contact us</h4>
 					<p>For questions and feedback on this website, and to request iFISH probes, please contact us at <a href="mailto:ifish4u@gmail.com">ifish4u@gmail.com</a></p>
