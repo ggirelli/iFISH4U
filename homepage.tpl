@@ -62,6 +62,12 @@
 					<h4>News</h4>
 					<ul>
 						<li>
+							<b>2019-09-11</b>: released <code>ifpd v2.0.3.post2</code>, fixing a bug crashing the web interface due to a missing str2int conversion.
+						</li>
+						<li>
+							<b>2019-07-24</b>: released <code>ifpd v2.0.3.post1</code>, fixing a bug crashing the web interface when no CUSTOm flags are present in a database.
+						</li>
+						<li>
 							<b>2019-05-29</b>: released <code>ifpd v2.0.3</code>, fixing a few bugs in the design pipeline/interface. Check out the <a href="https://github.com/ggirelli/iFISH-probe-design/releases/tag/v2.0.3">changelog</a> for details! Do not forget to report any bugs you encounter, or request new features, by opening a ticket <a href="https://github.com/ggirelli/iFISH-probe-design/issues">here</a> or dropping us an <a href="mailto:ifish4u@gmail.com">email</a>.
 						</li>
 					</ul>
