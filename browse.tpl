@@ -37,7 +37,7 @@
 
 					<p>If you are interested in using these probes, we can provide PCR products for single or multiple probes, which you can then <i>in vitro</i> transcribe and convert to ready-to-use single-stranded DNA probes. As we are a non-profit academic research group, we will only charge you with the shipping fee and a small contribution for the maintenance of our repository.</p>
 
-					<p>To request PCR products, please select one or more probes, click ‘Request PCR products for these probes’, and then send us the downloaded list with a request email to ifish4u@gmail.com. We will then contact you back to discuss the shipment and payment details.</p>
+					<p>To request PCR products, please select one or more probes, click ‘Request PCR products for these probes’, and then send us the downloaded list with a request email to ifh4u@gmail.com. We will then contact you back to discuss the shipment and payment details.</p>
 					
 					<small class="mb-3">Please note that all our iFISH probes were designed on the <code>hg19</code> reference genome.</small>
 				</div>
