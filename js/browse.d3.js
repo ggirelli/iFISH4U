@@ -296,11 +296,11 @@ $(document).ready(function() {
 	});
 
 	$("#request-btn").click(function(e) {
-		alert("Send us an email at ifh4u@gmail.com," +
+		alert("Send us an email at ifh4u.org@gmail.com," +
 			" attaching the selected probes after downloading them." +
 			" You will now be redirected to your e-mail software." +
 			" (might take a few moments)");
-		window.location.href = "mailto:ifh4u@gmail.com";
+		window.location.href = "mailto:ifh4u.org@gmail.com";
 		e.preventDefault();
 	});
 	$(".download-btn").click(function(e) {

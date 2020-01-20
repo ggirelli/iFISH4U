@@ -68,13 +68,13 @@
 							<b>2019-07-24</b>: released <code>ifpd v2.0.3.post1</code>, fixing a bug crashing the web interface when no CUSTOm flags are present in a database.
 						</li>
 						<li>
-							<b>2019-05-29</b>: released <code>ifpd v2.0.3</code>, fixing a few bugs in the design pipeline/interface. Check out the <a href="https://github.com/ggirelli/iFISH-probe-design/releases/tag/v2.0.3">changelog</a> for details! Do not forget to report any bugs you encounter, or request new features, by opening a ticket <a href="https://github.com/ggirelli/iFISH-probe-design/issues">here</a> or dropping us an <a href="mailto:ifh4u@gmail.com">email</a>.
+							<b>2019-05-29</b>: released <code>ifpd v2.0.3</code>, fixing a few bugs in the design pipeline/interface. Check out the <a href="https://github.com/ggirelli/iFISH-probe-design/releases/tag/v2.0.3">changelog</a> for details! Do not forget to report any bugs you encounter, or request new features, by opening a ticket <a href="https://github.com/ggirelli/iFISH-probe-design/issues">here</a> or dropping us an <a href="mailto:ifh4u.org@gmail.com">email</a>.
 						</li>
 					</ul>
 				</div>
 				<div class="col col-xl-6 col-12 text-left">
 					<h4>Contact us</h4>
-					<p>For questions and feedback on this website, and to request iFISH probes, please contact us at <a href="mailto:ifh4u@gmail.com">ifh4u@gmail.com</a></p>
+					<p>For questions and feedback on this website, and to request iFISH probes, please contact us at <a href="mailto:ifh4u.org@gmail.com">ifh4u.org@gmail.com</a></p>
 					<h4>Credits</h4>
 					<p>iFISH4U was designed and implemented by G. Girelli, from scratch.<br/>Background FISH image by E. Gelali.</p>
 				</div>
