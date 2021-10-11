@@ -5,5 +5,6 @@
 							<a class="dropdown-item inactive" href="/browse">Browse</a>
 							<a class="dropdown-item" href="/download">Download</a>
 							<a class="dropdown-item" href="https://ggirelli.github.io/iFISH-probe-design/install">Install</a>
+							<a class="dropdown-item" href="/aftf">Order</a>
 						</div>
 					</li>

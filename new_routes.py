@@ -45,6 +45,16 @@ def callback():
 	d['description'] = "Download iFISH databases."
 	return d
 
+@root.route("/aftf")
+@root.route("/aftf/")
+@bot.view("aftf")
+def callback():
+	d = {}
+	d['custom_stylesheets'] = []
+	d['title'] = "iFISH4U|Advanced FISH Techniques Facility"
+	d['description'] = "Order probes via our facility."
+	return d
+
 @root.route('/custom_images/<path>')
 def callback(path):
 	return bot.static_file(path, f'{os.path.dirname(args.custom_routes)}/images/')
