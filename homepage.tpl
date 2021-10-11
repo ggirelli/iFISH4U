@@ -55,7 +55,7 @@
 						</a>
 					</div>
 					<div class="col col-6 col-md-2 btn main-btn-wrap" id="install-btn">
-						<a role="button" class="btn main-btn" href="https://ggirelli.github.io/iFISH-probe-design/aftf">
+						<a role="button" class="btn main-btn" href="/aftf">
 							<i class="fas fa-cart-arrow-down"></i>
 							<span class="description">Order</span>
 						</a>
@@ -68,7 +68,7 @@
 					<h4>News</h4>
 					<ul>
 						<li>
-							<b>2021-10-11</b>: removed GoogleAnalytics and added <a href="https://ggirelli.github.io/iFISH-probe-design/aftf">order page</a> directing to our new <i>Advanced FISH Technologies Facility</i>.
+							<b>2021-10-11</b>: removed GoogleAnalytics and added <a href="/aftf">order page</a> directing to our new <i>Advanced FISH Technologies Facility</i>.
 						</li>
 						<li>
 							<b>2019-09-11</b>: released <code>ifpd v2.0.3.post2</code>, fixing a bug crashing the web interface due to a missing str2int conversion.
