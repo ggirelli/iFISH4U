@@ -27,7 +27,7 @@ pdApp.install(EnableCors())
 
 @root.route("/browse")
 @root.route("/browse/")
-@bot.view("browse")
+@bottle.view("browse")
 def callback():
 	d = {}
 	d['custom_stylesheets'] = []
@@ -37,7 +37,7 @@ def callback():
 
 @root.route("/download")
 @root.route("/download/")
-@bot.view("download")
+@bottle.view("download")
 def callback():
 	d = {}
 	d['custom_stylesheets'] = []
