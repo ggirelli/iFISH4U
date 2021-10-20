@@ -62,6 +62,9 @@
 					<h4>News</h4>
 					<ul>
 						<li>
+							<b>2021-10-20</b>: released <code>ifpd v2.1.0</code>, fixing typos and improving things under the hood.
+						</li>
+						<li>
 							<b>2019-09-11</b>: released <code>ifpd v2.0.3.post2</code>, fixing a bug crashing the web interface due to a missing str2int conversion.
 						</li>
 						<li>
