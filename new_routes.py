@@ -1,9 +1,10 @@
 import hashlib
+import os
 import pandas as pd
 import time
 
 
-def update_probe_design_app(pdApp):
+def update_probe_design_app(bot, pdApp, args):
     pdApp.tprefix = "iFISH4U|Probe Design|"
     pdApp.vd["breadcrumbs"] = True
     pdApp.vd["SHOW_COOKIE_CONSENT_BANNER"] = True
@@ -37,7 +38,7 @@ def update_probe_design_app(pdApp):
     return pdApp
 
 
-def update_root_app(root):
+def update_root_app(bot, root, args):
     @root.route("/browse")
     @root.route("/browse/")
     @bot.view("browse")
