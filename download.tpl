@@ -95,7 +95,7 @@
 									<li>7+ nt homopolymer filter</li>
 									<li>70% homology threshold</li>
 									<li>65 &deg;C secondary structure temperature</li>
-									<li><b>5+ mistmatches filter</b></li>
+									<li><b>5+ mismatches filter</b></li>
 								</ul>
 							</td>
 							<td>
