@@ -24,6 +24,7 @@
 							<a class="dropdown-item" href="/probe-design/">Design</a>
 							<a class="dropdown-item" href="/download">Download</a>
 							<a class="dropdown-item" href="https://ggirelli.github.io/iFISH-probe-design/install">Install</a>
+							<a class="dropdown-item" href="/aftf">Order</a>
 						</div>
 					</li>
 					<li class="breadcrumb-item"><a href="/">Home</a></li>
@@ -33,11 +34,14 @@
 	
 			<div id="abstract" class="row">
 				<div class="col col-xl-12">
-					<p>On this page, you can browse all the probes currently present in the iFISH repository, and see which probes have been individually tested and validated. All the probes are specific for the human genome. As we are continuously expanding our repository, please check this page regularly to see which new probes have been added.</p>
+					<p>On this page, you can browse all the probes currently present in the iFISH repository, and see which probes have been individually tested and validated.
+					All the probes are specific for the human genome. As we are continuously expanding our repository, please check this page regularly to see which new probes have been added.</p>
 
-					<p>If you are interested in using these probes, we can provide PCR products for single or multiple probes, which you can then <i>in vitro</i> transcribe and convert to ready-to-use single-stranded DNA probes. As we are a non-profit academic research group, we will only charge you with the shipping fee and a small contribution for the maintenance of our repository.</p>
+					<p>If you are interested in using these probes, we can provide PCR products for single or multiple probes, which you can then <i>in vitro</i>
+					transcribe and convert to ready-to-use single-stranded DNA probes. As we are a non-profit academic research group, we will only charge you with
+					the shipping fee and a small contribution for the maintenance of our repository.</p>
 
-					<p>To request PCR products, please select one or more probes, click ‘Request PCR products for these probes’, and then send us the downloaded list with a request email to ifh4u.org@gmail.com. We will then contact you back to discuss the shipment and payment details.</p>
+					<p>To request PCR products, please refer to the <a href="/aftf">order page</a>.</p>
 					
 					<small class="mb-3">Please note that all our iFISH probes were designed on the <code>hg19</code> reference genome.</small>
 				</div>
@@ -93,10 +97,6 @@
 					</div>
 					<div class="col col-6">
 						<button class="download-btn with-primers btn btn-success btn-block btn-lg mt-3 final-btn" disabled><span class="fas fa-download"></span>&nbsp;Get selected probes<br/><small>(with primers)</small></button>
-					</div>
-					<div class="col col-12">
-						<button id="request-btn" class="btn btn-primary btn-block btn-lg mt-3 final-btn" disabled><span class="fas fa-shipping-fast"></span>&nbsp;Request selected probes</button>
-						<small>Please note that requested probes <b>always</b> have incorporated primers.</small>
 					</div>
 				</div>
 			</p>

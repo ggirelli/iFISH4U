@@ -30,28 +30,34 @@
 			</div>
 
 				<div class="row">
-					<div class="col col-6 col-md-3 col-lg-3 col-xg-3 btn main-btn-wrap" id="browse-btn">
+					<div class="col col-6 offset-md-1 col-md-2 btn main-btn-wrap" id="browse-btn">
 						<a role="button" class="btn main-btn" href="browse">
 							<span class="fas fa-search"></span>
 							<span class="description">Browse</span>
 						</a>
 					</div>
-					<div class="col col-6 col-md-3 col-lg-3 col-xg-3 btn main-btn-wrap" id="design-btn">
+					<div class="col col-6 col-md-2 btn main-btn-wrap" id="design-btn">
 						<a role="button" class="btn main-btn" href="probe-design/">
 							<span class="fas fa-pencil-alt"></span>
 							<span class="description">Design</span>
 						</a>
 					</div>
-					<div class="col col-6 col-md-3 col-lg-3 col-xg-3 btn main-btn-wrap" id="download-btn">
+					<div class="col col-6 col-md-2 btn main-btn-wrap" id="download-btn">
 						<a role="button" class="btn main-btn" href="download">
 							<span class="fas fa-download"></span>
 							<span class="description">Download</span>
 						</a>
 					</div>
-					<div class="col col-6 col-md-3 col-lg-3 col-xg-3 btn main-btn-wrap" id="install-btn">
+					<div class="col col-6 col-md-2 btn main-btn-wrap" id="install-btn">
 						<a role="button" class="btn main-btn" href="https://ggirelli.github.io/iFISH-probe-design/install">
 							<span class="fab fa-python"></span>
 							<span class="description">Install</span>
+						</a>
+					</div>
+					<div class="col col-6 col-md-2 btn main-btn-wrap" id="install-btn">
+						<a role="button" class="btn main-btn" href="/aftf">
+							<i class="fas fa-cart-arrow-down"></i>
+							<span class="description">Order</span>
 						</a>
 					</div>
 				</div>
@@ -65,19 +71,25 @@
 							<b>2021-10-20</b>: released <code>ifpd v2.1.0</code>, fixing typos and improving things under the hood.
 						</li>
 						<li>
+							<b>2021-10-11</b>: removed GoogleAnalytics and added <a href="/aftf">order page</a> directing to our new <i>Advanced FISH Technologies Facility</i>.
+						</li>
+						<li>
 							<b>2019-09-11</b>: released <code>ifpd v2.0.3.post2</code>, fixing a bug crashing the web interface due to a missing str2int conversion.
 						</li>
 						<li>
 							<b>2019-07-24</b>: released <code>ifpd v2.0.3.post1</code>, fixing a bug crashing the web interface when no CUSTOm flags are present in a database.
 						</li>
 						<li>
-							<b>2019-05-29</b>: released <code>ifpd v2.0.3</code>, fixing a few bugs in the design pipeline/interface. Check out the <a href="https://github.com/ggirelli/iFISH-probe-design/releases/tag/v2.0.3">changelog</a> for details! Do not forget to report any bugs you encounter, or request new features, by opening a ticket <a href="https://github.com/ggirelli/iFISH-probe-design/issues">here</a> or dropping us an <a href="mailto:ifh4u.org@gmail.com">email</a>.
+							<b>2019-05-29</b>: released <code>ifpd v2.0.3</code>, fixing a few bugs in the design pipeline/interface.
+							Check out the <a href="https://github.com/ggirelli/iFISH-probe-design/releases/tag/v2.0.3">changelog</a> for details!
+							Do not forget to report any bugs you encounter, or request new features, by opening a ticket
+							<a href="https://github.com/ggirelli/iFISH-probe-design/issues">here</a> or dropping us an <a href="mailto:ifh4u.org@gmail.com">email</a>.
 						</li>
 					</ul>
 				</div>
 				<div class="col col-xl-6 col-12 text-left">
 					<h4>Contact us</h4>
-					<p>For questions and feedback on this website, and to request iFISH probes, please contact us at <a href="mailto:ifh4u.org@gmail.com">ifh4u.org@gmail.com</a></p>
+					<p>For questions and feedback on this website, and to request iFISH probes, please contact us at <a href="mailto:ifish4u.org@gmail.com">ifish4u.org@gmail.com</a></p>
 					<h4>Credits</h4>
 					<p>iFISH4U was designed and implemented by G. Girelli, from scratch.<br/>Background FISH image by E. Gelali.</p>
 				</div>
@@ -92,6 +104,10 @@
 						</li>
 						<li>
 							iFISH4U is offered by the <a href="https://bienkocrosettolabs.org/" target="_new">Bienko and Crosetto labs</a>. Please visit our website to learn what we are interested in and what we do.
+						</li>
+						<li>
+							Our Advanced FISH Technologies(AFT) Facility offers the following main services, which can be delivered alone or in combination.
+							More details <a href="https://www.scilifelab.se/units/advanced-fish-technologies/" target="_blank">here</a>!
 						</li>
 					</ul>
 				</div>

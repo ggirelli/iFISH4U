@@ -19,6 +19,7 @@
 							<a class="dropdown-item inactive" href="/browse">Browse</a>
 							<a class="dropdown-item" href="/probe-design/">Design</a>
 							<a class="dropdown-item" href="https://ggirelli.github.io/iFISH-probe-design/install">Install</a>
+							<a class="dropdown-item" href="/aftf">Order</a>
 						</div>
 					</li>
 					<li class="breadcrumb-item"><a href="/">Home</a></li>
